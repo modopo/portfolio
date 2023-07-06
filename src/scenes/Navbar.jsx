@@ -2,6 +2,7 @@ import { useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { ReactComponent as MenuIcon } from "../assets/menu-icon.svg";
+import { ReactComponent as CloseIcon } from "../assets/close-icon.svg";
 
 const Link = ({ page, selectedPage, setSelectedPage }) => {
   const lowerCasePage = page.toLowerCase();
@@ -17,12 +18,13 @@ const Link = ({ page, selectedPage, setSelectedPage }) => {
   )
 }
 
-const Navbar = ({ selectedPage, setSelectedPage }) => {
+const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   const isAboveSmallScreen = useMediaQuery("(min-width: 768px)");
+  const navbarBackground = isTopOfPage ? "" : "bg-red";
 
   return (
-    <nav className={`z-40 w-full fixed top-0 py-6`}>
+    <nav className={`${navbarBackground} z-40 w-full fixed top-0 py-6`}>
       <div className="flex items-center justify-between mx-auto w-5/6">
         <h4 className="font-playfair text-3xl font-bold">JT</h4>
 
@@ -59,11 +61,34 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
         )}
 
         {!isAboveSmallScreen && isMenuToggled && (
-          <div className="fixed rigth-0 bottom-0 h-full bg-blue w-[300px]">
+          <div className="fixed right-0 bottom-0 h-full bg-blue w-[300px]">
             <div className="flex justify-end p-12">
               <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                <img alt="menu" src="../assets/menu-svgrepo-com.svg" />
+                <CloseIcon alt="close-icon" />
               </button>
+            </div>
+
+            <div className="flex flex-col gap-10 ml-[33%] text-2xl text-deep-blue">
+              <Link
+                page="Home"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="Skills"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="Projects"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="Contacts"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
             </div>
           </div>
         )}
