@@ -5,7 +5,7 @@ import DotPagination from "./scenes/DotPagination";
 import Landing from "./scenes/Landing"
 import LineGradient from "./components/LineGradient";
 import Skills from "./scenes/Skills";
-import Projects from "./screnes/Projects";
+import Projects from "./scenes/Projects";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState('home');
