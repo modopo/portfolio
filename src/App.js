@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import useMediaQuery from "./hooks/useMediaQuery";
 import DotPagination from "./scenes/DotPagination";
 import Landing from "./scenes/Landing"
-
+import LineGradient from "./components/LineGradient";
+import Skills from "./scenes/Skills";
+import Projects from "./screnes/Projects";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState('home');
@@ -34,6 +36,14 @@ function App() {
           />
         )}
         <Landing setSelectedPage={setSelectedPage} />
+        <LineGradient />
+        <div className="w-5/6 mx-auto md:h-full">
+          <Skills />
+        </div>
+        <LineGradient />
+        <div className="w-5/6 mx-auto">
+          <Projects />
+        </div>
       </div>
     </div>
   );
