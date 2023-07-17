@@ -1,6 +1,26 @@
 import LineGradient from "../components/LineGradient";
 import { motion } from "framer-motion";
 
+const projectImages = [
+  require("../assets/project-1.jpeg"),
+  require("../assets/project-2.jpeg"),
+  require("../assets/project-3.jpeg"),
+  require("../assets/project-4.jpeg"),
+  require("../assets/project-5.jpeg"),
+  require("../assets/project-6.jpeg"),
+  require("../assets/project-7.jpeg"),
+];
+
+const projectDescription = [
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  "Doloremque cupiditate consequuntur assumenda ex dolor voluptatum reprehenderit",
+  "in harum quia aspernatur eaque impedit accusantium",
+  "ad molestiae numquam fugiat repellat molestias necessitatibus!",
+  "Doloremque cupiditate consequuntur assumenda ex dolor voluptatum reprehenderit",
+  "in harum quia aspernatur eaque impedit accusantium",
+  "ad molestiae numquam fugiat repellat molestias necessitatibus!"
+]
+
 const container = {
   hidden: {},
   visible: {
@@ -13,10 +33,12 @@ const projectVariant = {
   visible: { opacity: 1, scale: 1 }
 }
 
-const Project = ({ title, subtitle }) => {
+const Project = ({ src, subtitle }) => {
   const overlayStyles= `absolute h-full w-full opacity-0 hover:opacity-90 transition duration-500
     bg-grey z-30 flex flex-col justify-center items-center text-center p-16 text-deep-blue`;
-  const projectTitle = title.split(' ').join('-').toLowerCase();
+
+  const alt = src.split("/")[3].split('.')[0];
+  const title = alt.charAt(0).toUpperCase() + alt.slice(1);
 
   return (
     <motion.div variants={projectVariant} className="relative">
@@ -24,7 +46,7 @@ const Project = ({ title, subtitle }) => {
         <p className="text-2xl font-playfair">{title}</p>
         <p className="mt-7">{subtitle}</p>
       </div>
-      <img src={`../assets/${projectTitle}.jpeg`} alt={projectTitle} />
+      <img src={src} alt={alt} />
     </motion.div>
   )
 }
@@ -70,13 +92,13 @@ const Projects = () => {
           >
             USEFUL USER INTERFACES
           </div>
-          <Project title="Project 1" subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."/>
-          <Project title="Project 2" subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."/>
-          <Project title="Project 3" subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."/>
-          <Project title="Project 4" subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."/>
-          <Project title="Project 5" subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."/>
-          <Project title="Project 6" subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."/>
-          <Project title="Project 7" subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit."/>
+          <Project src={projectImages[0]} subtitle={projectDescription[0]} />
+          <Project src={projectImages[1]} subtitle={projectDescription[1]} />
+          <Project src={projectImages[2]} subtitle={projectDescription[2]} />
+          <Project src={projectImages[3]} subtitle={projectDescription[3]} />
+          <Project src={projectImages[4]} subtitle={projectDescription[4]} />
+          <Project src={projectImages[5]} subtitle={projectDescription[5]} />
+          <Project src={projectImages[6]} subtitle={projectDescription[6]} />
           <div
             className="flex jusitfy-center text-center items-center p-10 bg-blue
               max-w-[400px] max-h-[400px] text-2xl font-playfair font-semibold"
