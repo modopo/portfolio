@@ -55,7 +55,7 @@ const Projects = () => {
   return (
     <section id="projects" className="pt-48 pb-48">
       <motion.div
-        className="md:w-1/3"
+        className="md:w-2/4 mx-auto text-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
