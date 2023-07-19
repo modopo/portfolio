@@ -7,6 +7,7 @@ import LineGradient from "./components/LineGradient";
 import Skills from "./scenes/Skills";
 import Projects from "./scenes/Projects";
 import Experience from "./scenes/Experience";
+import Contact from "./scenes/Contact";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState('home');
@@ -49,6 +50,9 @@ function App() {
       <LineGradient />
       <div className="w-5/6 mx-auto md:h-full">
         <Experience />
+      </div>
+      <div className="w-5/6 mx-auto md:h-full">
+        <Contact />
       </div>
     </div>
   );
