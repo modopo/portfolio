@@ -8,6 +8,7 @@ import Skills from "./scenes/Skills";
 import Projects from "./scenes/Projects";
 import Experience from "./scenes/Experience";
 import Contact from "./scenes/Contact";
+import Footer from "./scenes/Footer";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState('home');
@@ -54,6 +55,7 @@ function App() {
       <div className="w-5/6 mx-auto md:h-full">
         <Contact />
       </div>
+      <Footer />
     </div>
   );
 }
