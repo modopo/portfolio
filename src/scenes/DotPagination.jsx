@@ -32,7 +32,7 @@ const DotPagination = ({ selectedPage, setSelectedPage }) => {
         onClick={() => setSelectedPage('home')}
       />
       <AnchorLink
-        className={`${selectedPage === 'contacts' ? selectedStyle : "bg-dark-grey"}
+        className={`${selectedPage === 'contact' ? selectedStyle : "bg-dark-grey"}
           w-3 h-3 rounded-full`}
         href="#contacts"
         onClick={() => setSelectedPage('home')}
